@@ -126,6 +126,12 @@ Before the compilation you must check that CUDA has been enabled in the configur
 --     NVIDIA PTX archs:
 -- 
 --   cuDNN:                         YES (ver 8.6.0)
+....
+--   Python 3:
+--     Interpreter:                 /home/talha/anaconda3/envs/test/bin/python (ver 3.9)
+--     Libraries:                   ...
+--     numpy:                       ...
+--     install path:                /home/talha/anaconda3/envs/test/lib/python3.9/site-packages
 
 ```
 
