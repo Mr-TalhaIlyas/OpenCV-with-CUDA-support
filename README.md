@@ -83,7 +83,8 @@ We will now proceed with the installation (see the Qt flag that is disabled to d
     $ cd opencv-4.5.2
     $ mkdir build
     $ cd build
-    
+Configure following as per your requirements. I am installing in conda env so if you want to install in virtual env follow steps in Ref 1 at the end.
+```
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D CMAKE_INSTALL_PREFIX=/usr/local \
 -D WITH_TBB=ON \
@@ -108,7 +109,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D INSTALL_PYTHON_EXAMPLES=OFF \
 -D INSTALL_C_EXAMPLES=OFF \
 -D BUILD_EXAMPLES=OFF ..
-
+```
 
     
 If you want also to use CUDNN you must include those flags (to set the correct value of CUDA_ARCH_BIN you must visit https://developer.nvidia.com/cuda-gpus and find the Compute Capability CC of your graphic card). If you have problems with the setting up of CUDDN check the *List of documented problems*:
