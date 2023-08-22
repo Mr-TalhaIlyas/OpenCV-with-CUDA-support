@@ -40,11 +40,10 @@ Then, install required libraries:
     ```
     $ sudo apt-get install libgtk-3-dev
     ```
-* Python libraries for python3:
+* Install Anaconda and creat a conda env:
     ```
-    $ sudo apt-get install python3-dev python3-pip
-    $ sudo -H pip3 install -U pip numpy
-    $ sudo apt install python3-testresources
+    $ conda create -n <name> python=3.8.2
+    $ conda install numpy
     ```
 * Parallelism library C++ for CPU
     ```
@@ -83,10 +82,10 @@ We will now proceed with the installation (see the Qt flag that is disabled to d
     $ cd opencv-4.5.2
     $ mkdir build
     $ cd build
-Configure following as per your requirements. I am installing in conda env so if you want to install in virtual env follow steps in Ref 1 at the end.
+Configure following as per your requirements. I am installing in conda env so if you want to install in virtual env follow steps in Ref 1 at the end. *Edit paths accordingly*
 ```
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
--D CMAKE_INSTALL_PREFIX=/home/talha/anaconda3/envs/cvof \
+-D CMAKE_INSTALL_PREFIX=/home/<user-name>/anaconda3/envs/<env-name> \
 -D WITH_TBB=ON \
 -D ENABLE_FAST_MATH=1 \
 -D CUDA_FAST_MATH=1 \
@@ -103,8 +102,8 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D OPENCV_GENERATE_PKGCONFIG=ON \
 -D OPENCV_PC_FILE_NAME=opencv.pc \
 -D OPENCV_ENABLE_NONFREE=ON \
--D OPENCV_PYTHON3_INSTALL_PATH=/home/talha/anaconda3/envs/cvof/lib/python3.8/site-packages \
--D PYTHON_EXECUTABLE=/home/talha/anaconda3/envs/cvof/bin/python \
+-D OPENCV_PYTHON3_INSTALL_PATH=/home/<user-name>/anaconda3/envs/<env-name>/lib/python3.8/site-packages \
+-D PYTHON_EXECUTABLE=/home/<user-name>/anaconda3/envs/<env-name>/bin/python \
 -D OPENCV_EXTRA_MODULES_PATH=~/Downloads/opencv_contrib-4.5.2/modules \
 -D INSTALL_PYTHON_EXAMPLES=OFF \
 -D INSTALL_C_EXAMPLES=OFF \
