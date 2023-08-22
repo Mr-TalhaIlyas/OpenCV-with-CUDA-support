@@ -86,7 +86,7 @@ We will now proceed with the installation (see the Qt flag that is disabled to d
 Configure following as per your requirements. I am installing in conda env so if you want to install in virtual env follow steps in Ref 1 at the end.
 ```
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
--D CMAKE_INSTALL_PREFIX=/usr/local \
+-D CMAKE_INSTALL_PREFIX=/home/talha/anaconda3/envs/cvof \
 -D WITH_TBB=ON \
 -D ENABLE_FAST_MATH=1 \
 -D CUDA_FAST_MATH=1 \
@@ -103,8 +103,8 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D OPENCV_GENERATE_PKGCONFIG=ON \
 -D OPENCV_PC_FILE_NAME=opencv.pc \
 -D OPENCV_ENABLE_NONFREE=ON \
--D OPENCV_PYTHON3_INSTALL_PATH=/home/talha/anaconda3/envs/test/lib/python3.9/site-packages \
--D PYTHON_EXECUTABLE=/home/talha/anaconda3/envs/test/bin/python \
+-D OPENCV_PYTHON3_INSTALL_PATH=/home/talha/anaconda3/envs/cvof/lib/python3.8/site-packages \
+-D PYTHON_EXECUTABLE=/home/talha/anaconda3/envs/cvof/bin/python \
 -D OPENCV_EXTRA_MODULES_PATH=~/Downloads/opencv_contrib-4.5.2/modules \
 -D INSTALL_PYTHON_EXAMPLES=OFF \
 -D INSTALL_C_EXAMPLES=OFF \
