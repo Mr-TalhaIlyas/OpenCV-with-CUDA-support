@@ -1,4 +1,4 @@
-# How to install OpenCV 4.5.2 with CUDA 11.2 and CUDNN 8.2 in Ubuntu 20.04
+# How to install OpenCV 4.5.2 with CUDA 11.8 and CUDNN 8.6 in Ubuntu 20.04
 
 First of all install update and upgrade your system:
     
@@ -132,11 +132,18 @@ If it is fine proceed with the compilation (Use nproc to know the number of cpu 
     $ make -j8
     $ sudo make install
 
-Include the libs in your environment    
-    
-    $ sudo /bin/bash -c 'echo "/usr/local/lib" >> /etc/ld.so.conf.d/opencv.conf'
-    $ sudo ldconfig
+You'll need to update the library search path to include the lib directory of your conda environment. You can do this by adding the following lines to your ~/.bashrc file:
+```bash
+export LD_LIBRARY_PATH=/home/talha/anaconda3/envs/test/lib:$LD_LIBRARY_PATH
+```
+After adding these lines, restart your terminal or run source ~/.bashrc to update the library search path.
 
+You can also verify if the dir is present in your env
+
+```
+ls /home/<user>/anaconda3/envs/<env-name>/lib/python3.8/site-packages | grep cv2
+```
+The output with be just `cv2` if nothing then it did'nt install in your conda env.
  Here's a breakdown of what each command does:
 
 1. `make -j8`: This command compiles the OpenCV source code. The `-j8` flag tells `make` to use 8 parallel jobs, which can speed up the compilation process if you have a multi-core processor.
@@ -151,7 +158,7 @@ After running these commands, you should be able to use OpenCV with CUDA support
 *If you have any other problem try updating the nvidia drivers.*
 
 ### Source
-- [Raulqf](https://gist.github.com/raulqf/f42c718a658cddc16f9df07ecc627be7#file-install_opencv4_cuda11_cudnn8-md)
+- [Raulqf-Virtusl Env Installtion](https://gist.github.com/raulqf/f42c718a658cddc16f9df07ecc627be7#file-install_opencv4_cuda11_cudnn8-md)
 - [pyimagesearch](https://www.pyimagesearch.com/2018/08/15/how-to-install-opencv-4-on-ubuntu/)
 - [learnopencv](https://www.learnopencv.com/install-opencv-4-on-ubuntu-18-04/)
 - [Tzu-cheng](https://chuangtc.com/ParallelComputing/OpenCV_Nvidia_CUDA_Setup.php)
