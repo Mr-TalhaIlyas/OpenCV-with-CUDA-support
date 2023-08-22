@@ -142,6 +142,17 @@ Include the libs in your environment
     $ sudo /bin/bash -c 'echo "/usr/local/lib" >> /etc/ld.so.conf.d/opencv.conf'
     $ sudo ldconfig
 
+ Here's a breakdown of what each command does:
+
+1. `make -j8`: This command compiles the OpenCV source code. The `-j8` flag tells `make` to use 8 parallel jobs, which can speed up the compilation process if you have a multi-core processor.
+
+2. `sudo make install`: This command installs the compiled OpenCV libraries and headers to the location specified by the `CMAKE_INSTALL_PREFIX` option in the `cmake` command (in this case, `/usr/local`).
+
+3. `sudo /bin/bash -c 'echo "/usr/local/lib" >> /etc/ld.so.conf.d/opencv.conf'`: This command adds the path `/usr/local/lib` to the file `/etc/ld.so.conf.d/opencv.conf`, which is used by the dynamic linker to find shared libraries. This step is necessary because you installed OpenCV to `/usr/local`, which may not be in the default library search path.
+
+4. `sudo ldconfig`: This command updates the dynamic linker cache with the new library path. This step is necessary for the system to find the OpenCV libraries when you run programs that use them.
+
+After running these commands, you should be able to use OpenCV with CUDA support in your `test` conda environment. Just make sure to activate the environment with `conda activate test` before using OpenCV in Python.
 *If you have any other problem try updating the nvidia drivers.*
 
 ### Source
