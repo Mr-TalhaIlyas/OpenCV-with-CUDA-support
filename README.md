@@ -68,16 +68,6 @@ We will now proceed with the installation (see the Qt flag that is disabled to d
     $ unzip opencv.zip
     $ unzip opencv_contrib.zip
     
-    $ echo "Create a virtual environtment for the python binding module (OPTIONAL)"
-    $ sudo pip install virtualenv virtualenvwrapper
-    $ sudo rm -rf ~/.cache/pip
-    $ echo "Edit ~/.bashrc"
-    $ export WORKON_HOME=$HOME/.virtualenvs
-    $ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-    $ source /usr/local/bin/virtualenvwrapper.sh
-    $ mkvirtualenv cv -p python3
-    $ pip install numpy
-    
     $ echo "Procced with the installation"
     $ cd opencv-4.5.2
     $ mkdir build
